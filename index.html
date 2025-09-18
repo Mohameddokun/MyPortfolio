@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohamed | Portfolio - Computer Engineer, Data Analyst & .NET Backend Engineer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav>
+    <h1>Mohamed</h1>
+    <button class="menu-toggle" id="menu-toggle">☰</button>
+    <ul id="nav-menu">
+      <li><a href="#" data-slide="0">Home</a></li>
+      <li><a href="#" data-slide="1">About</a></li>
+      <li><a href="#" data-slide="2">Skills</a></li>
+      <li><a href="#" data-slide="3">Projects</a></li>
+      <li><a href="#" data-slide="4">Testimonials</a></li>
+      <li><a href="#" data-slide="5">Contact</a></li>
+    </ul>
+    <button id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+  </nav>
+
+  <div class="slides-container">
+    <!-- Hero Slide -->
+    <section class="slide active hero-slide" id="slide-0">
+      <div class="container">
+        <img src="Photo.jpg" alt="Mohamed's Photo" class="profile-img">
+        <h2>Hello, I'm Mohamed</h2>
+        <div class="usp">I transform complex data into actionable insights and build responsive web solutions</div>
+        <p>A passionate Computer Engineering student specializing in data analytics and web development, with expertise in turning raw data into meaningful visualizations and creating user-friendly digital experiences.</p>
+      </div>
+    </section>
+
+    <!-- About Slide -->
+    <section class="slide" id="slide-1">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-section">
+          <div class="photo-container">
+            <img src="Photo.jpg" alt="Mohamed's Photo" class="profile-img">
+          </div>
+          <div class="content-container">
+            <p class="intro">
+              I'm a Computer Engineering student at Helwan University with a passion for solving complex problems through technology. With over 4 years of experience in graphic design and system design, I've developed a unique blend of technical expertise and creative thinking that allows me to approach challenges from multiple perspectives.
+            </p>
+            <div class="details">
+              <p><strong>Education:</strong> Bachelor's in Computer Engineering, Helwan University (Expected 2028)</p>
+              <p><strong>Experience:</strong> +4 years in graphic design and system design</p>
+              <p><strong>Interests:</strong> Data Analytics, AI applications, and competitive programming</p>
+              <p><strong>Languages:</strong> Arabic (Native), English (Fluent)</p>
+              <p><strong>Location:</strong> Giza, Egypt</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Slide -->
+    <section class="slide" id="slide-2">
+      <div class="container">
+        <h2 class="section-title">Skills & Expertise</h2>
+        <div class="skills-container">
+          <div class="skill">
+            <span>HTML5</span>
+            <div class="bar" data-percent="95%">
+              <div class="fill"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <span>CSS3</span>
+            <div class="bar" data-percent="90%">
+              <div class="fill"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <span>JavaScript</span>
+            <div class="bar" data-percent="85%">
+              <div class="fill"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <span>Python</span>
+            <div class="bar" data-percent="80%">
+              <div class="fill"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <span>Data Analysis</span>
+            <div class="bar" data-percent="88%">
+              <div class="fill"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <span>Problem Solving</span>
+            <div class="bar" data-percent="95%">
+              <div class="fill"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Slide -->
+    <section class="slide" id="slide-3">
+      <div class="container">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card fade-in">
+            <div class="project-img">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="project-content">
+              <h3>Sales Dashboard</h3>
+              <p>An interactive dashboard visualizing company sales data with filtering capabilities and predictive analytics.</p>
+              <div class="project-tags">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">Tableau</span>
+                <span class="project-tag">Microsoft Excel</span>
+                <span class="project-tag">Microsoft SQL</span>
+                <span class="project-tag">Data Visualization</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="project-card fade-in">
+            <div class="project-img">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="project-content">
+              <h3>E-commerce Website</h3>
+              <p>A fully responsive e-commerce platform with product filtering, cart functionality, and secure checkout.</p>
+              <div class="project-tags">
+                <span class="project-tag">HTML/CSS</span>
+                <span class="project-tag">JavaScript</span>
+                <span class="project-tag">React</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="project-card fade-in">
+            <div class="project-img">
+              <i class="fas fa-robot"></i>
+            </div>
+            <div class="project-content">
+              <h3>AI Chatbot</h3>
+              <p>A customer service chatbot using natural language processing to handle common inquiries and support tickets.</p>
+              <div class="project-tags">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">NLP</span>
+                <span class="project-tag">Machine Learning</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Slide -->
+    <section class="slide" id="slide-4">
+      <div class="container">
+        <h2 class="section-title">Client Testimonials</h2>
+        <div class="testimonials-container">
+          <div class="testimonial fade-in">
+            <div class="testimonial-text">
+              Mohamed delivered exceptional work on our data visualization project. His attention to detail and ability to translate complex requirements into a user-friendly interface was impressive.
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">AA</div>
+              <div class="author-info">
+                <h4>Ahmed Ali</h4>
+                <p>CEO, DataSolutions Inc.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial fade-in">
+            <div class="testimonial-text">
+              Working with Mohamed was a great experience. He completed our web development project ahead of schedule and implemented several improvements we hadn't even considered.
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">SK</div>
+              <div class="author-info">
+                <h4>Sara Khalil</h4>
+                <p>Marketing Director, TechGrowth</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial fade-in">
+            <div class="testimonial-text">
+              Mohamed's analytical skills are outstanding. He helped us identify key trends in our customer data that directly led to a 15% increase in conversion rates.
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">MR</div>
+              <div class="author-info">
+                <h4>Michael Roberts</h4>
+                <p>Product Manager, AnalyticsPro</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Slide -->
+    <section class="slide contact-slide" id="slide-5">
+      <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <p>I'm currently available for freelance work and interested in full-time opportunities. If you have a project that you want to get started or think you need my help with something, then get in touch.</p>
+        
+        <div class="contact-options">
+          <div class="contact-option fade-in">
+            <i class="fas fa-envelope"></i>
+            <h3>Email</h3>
+            <p>malwadyt441@gmail.com</p>
+          </div>
+          
+          <div class="contact-option fade-in">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>Location</h3>
+            <p>Giza, Egypt</p>
+          </div>
+          
+          <div class="contact-option fade-in">
+            <i class="fas fa-phone"></i>
+            <h3>Phone</h3>
+            <p>+20 114 408 8713</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="slide-nav">
+    <button class="nav-btn prev-btn" aria-label="Previous slide">←</button>
+    <button class="nav-btn next-btn" aria-label="Next slide">→</button>
+  </div>
+
+  <footer>
+    <div class="container">
+      <h2>Mohamed</h2>
+      <p>Computer Engineer & Data Analyst</p>
+      
+      <div class="social-links">
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Behance"><i class="fab fa-behance"></i></a>
+      </div>
+      
+      <p>© 2025 Mohamed. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
