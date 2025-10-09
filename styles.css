@@ -38,9 +38,12 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--bg);
   color: var(--text);
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.4s, color 0.4s;
   scroll-behavior: smooth;
   line-height: 1.6;
+  max-width: 100vw;
+  margin: 0 auto;
+  overflow-x: hidden;
 }
 
 .container {
@@ -96,6 +99,10 @@ nav a:after {
 
 nav a:hover:after {
   width: 100%;
+}
+
+nav a:hover {
+  color: var(--accent);
 }
 
 #theme-toggle {
@@ -548,7 +555,16 @@ footer {
     left: 0;
     right: 0;
     background: var(--primary);
-    padding: 1rem;
+    padding: 0 1rem; /* Initial padding for closed state */
+    max-height: 0; /* Initial height for closed state */
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+  }
+  
+  nav ul.show {
+    display: flex;
+    max-height: 300px; /* Adjust as needed to fit all menu items */
+    padding: 1rem; /* Expanded padding */
   }
   
   .about-section {
@@ -611,3 +627,52 @@ footer {
     display: flex;
   }
 }
+
+
+/* Project card link */
+.project-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+
+
+/* Smooth transition for mobile menu */
+nav ul {
+  transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 1rem;
+  }
+
+  nav ul.show {
+    max-height: 300px; /* Adjust based on content */
+    padding: 1rem;
+  }
+}
+
+
+
+
+/* Typing effect cursor */
+.typed-text {
+  font-weight: bold;
+  color: var(--accent);
+}
+
+.typed-text::after {
+  content: '|';
+  display: inline-block;
+  animation: blink-caret .75s infinite alternate;
+}
+
+@keyframes blink-caret {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
