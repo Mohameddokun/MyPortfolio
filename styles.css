@@ -195,18 +195,99 @@ nav a:hover { color: var(--primary); text-shadow: var(--glow-shadow); }
 .fill:after { content: ''; position: absolute; top: 0; left: 0; bottom: 0; right: 0; background-image: linear-gradient( -45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.1) 75%, transparent 75%, transparent ); z-index: 1; background-size: 40px 40px; animation: move 2s linear infinite; }
 @keyframes move { from { background-position: 0 0; } to { background-position: 40px 40px; } }
 
-/* Experience & Education Section */
-.experience-container, .education-container { display: flex; flex-direction: column; gap: 2rem; max-width: 900px; margin: 0 auto; }
-.experience-item, .education-item { background: var(--card-bg); padding: 1.5rem; border-radius: 10px; box-shadow: var(--card-shadow); border-left: 3px solid var(--primary); transition: transform 0.3s, box-shadow 0.3s; }
-.experience-item:hover, .education-item:hover { transform: translateY(-5px); box-shadow: 0 0 20px rgba(255, 184, 0, 0.2); }
-.experience-header, .education-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
-.experience-title, .education-title { color: var(--primary); margin-bottom: 0.5rem; }
-.experience-company, .education-institution { font-weight: 600; color: var(--text-dark); }
-.experience-date, .education-date { color: var(--accent); font-weight: 600; white-space: nowrap; margin-left: 1rem; background: rgba(255, 215, 0, 0.1); padding: 0.3rem 0.7rem; border-radius: 5px; font-size: 0.9rem; }
-.experience-details, .education-details { margin-top: 1rem; }
-.experience-details ul, .education-details ul { list-style-type: none; padding-left: 0; }
-.experience-details li, .education-details li { margin-bottom: 0.5rem; display: flex; align-items: flex-start; }
-.experience-details i, .education-details i { color: var(--primary); margin-right: 15px; margin-top: 5px; }
+
+/* ### NEW PROJECT CARD STYLES ### */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.project-card-link {
+  text-decoration: none;
+}
+
+.project-card {
+  background: var(--card-bg);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(255, 184, 0, 0.3);
+}
+
+.project-image {
+  height: 200px;
+  background: linear-gradient(45deg, var(--primary), var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: var(--bg);
+}
+
+/* If you use an <img> tag, use this style instead of the background */
+/*
+.project-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+*/
+
+.project-content {
+  padding: 1.5rem;
+}
+
+.project-content h3 {
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.project-content p {
+  color: var(--text);
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-tag {
+  background: rgba(255, 184, 0, 0.1);
+  color: var(--accent);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+/* ### END PROJECT STYLES ### */
+
+
+/* Education Section */
+.education-container { display: flex; flex-direction: column; gap: 2rem; max-width: 900px; margin: 0 auto; }
+.education-item { background: var(--card-bg); padding: 1.5rem; border-radius: 10px; box-shadow: var(--card-shadow); border-left: 3px solid var(--primary); transition: transform 0.3s, box-shadow 0.3s; }
+.education-item:hover { transform: translateY(-5px); box-shadow: 0 0 20px rgba(255, 184, 0, 0.2); }
+.education-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+.education-title { color: var(--primary); margin-bottom: 0.5rem; }
+.education-institution { font-weight: 600; color: var(--text-dark); }
+.education-date { color: var(--accent); font-weight: 600; white-space: nowrap; margin-left: 1rem; background: rgba(255, 215, 0, 0.1); padding: 0.3rem 0.7rem; border-radius: 5px; font-size: 0.9rem; }
+.education-details { margin-top: 1rem; }
+.education-details ul { list-style-type: none; padding-left: 0; }
+.education-details li { margin-bottom: 0.5rem; display: flex; align-items: flex-start; }
+.education-details i { color: var(--primary); margin-right: 15px; margin-top: 5px; }
 
 /* Contact Section */
 .contact-slide { background: var(--bg); text-align: center; }
@@ -244,8 +325,12 @@ footer { background: var(--bg); color: white; text-align: center; padding: 2rem 
   nav ul.show { display: flex; max-height: 300px; padding: 1rem; }
   .about-section { flex-direction: column; gap: 2rem; }
   .photo-container .profile-img { max-width: 200px; }
-  .experience-header { flex-direction: column; align-items: flex-start; }
-  .experience-date { margin-left: 0; margin-top: 0.5rem; }
+  /* ### UPDATED FOR PROJECT CARDS ### */
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .education-header { flex-direction: column; align-items: flex-start; }
+  .education-date { margin-left: 0; margin-top: 0.5rem; }
   .contact-options { flex-direction: column; align-items: center; }
   .slide { padding: 1rem; }
   .hero-slide h2 { font-size: 2rem; }
@@ -254,4 +339,4 @@ footer { background: var(--bg); color: white; text-align: center; padding: 2rem 
 }
 
 .typed-text::after { content: '_'; display: inline-block; animation: blink-caret .75s infinite alternate; color: var(--accent); }
-@keyframes blink-caret { from { opacity: 1; } to { 0; } }
+@keyframes blink-caret { from { opacity: 1; } to { opacity: 0; } }
