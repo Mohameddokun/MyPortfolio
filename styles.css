@@ -51,7 +51,7 @@ body {
 /* Navigation */
 nav {
   position: fixed;
-  top: 0;
+  padding-top: 100px
   width: 100%;
   background: rgba(13, 17, 23, 0.7); /* Semi-transparent background */
   backdrop-filter: blur(10px); /* Glassy effect */
@@ -196,7 +196,7 @@ nav a:hover { color: var(--primary); text-shadow: var(--glow-shadow); }
 @keyframes move { from { background-position: 0 0; } to { background-position: 40px 40px; } }
 
 
-/* ### NEW PROJECT CARD STYLES ### */
+/* Project Card Styles */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -233,15 +233,6 @@ nav a:hover { color: var(--primary); text-shadow: var(--glow-shadow); }
   color: var(--bg);
 }
 
-/* If you use an <img> tag, use this style instead of the background */
-/*
-.project-image img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-*/
-
 .project-content {
   padding: 1.5rem;
 }
@@ -273,7 +264,90 @@ nav a:hover { color: var(--primary); text-shadow: var(--glow-shadow); }
   font-size: 0.8rem;
   font-weight: 500;
 }
-/* ### END PROJECT STYLES ### */
+
+/* ### NEW TESTIMONIALS STYLES ### */
+.testimonials-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(255, 184, 0, 0.3);
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+
+.author-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--primary), var(--accent));
+  color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.author-info h4 {
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+
+.author-info p {
+  color: var(--text-dark);
+  font-size: 0.9rem;
+}
+
+.testimonial-text {
+  font-style: italic;
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.testimonial-text p {
+  display: inline; /* Keep text flowed with quotes */
+}
+
+.testimonial-text i {
+  color: var(--accent);
+  font-size: 0.8rem;
+}
+
+.testimonial-text i.fa-quote-left {
+  float: left;
+  margin-right: 0.5rem;
+}
+
+.testimonial-text i.fa-quote-right {
+  float: right;
+  margin-left: 0.5rem;
+}
+/* ### END TESTIMONIALS STYLES ### */
 
 
 /* Education Section */
@@ -325,10 +399,12 @@ footer { background: var(--bg); color: white; text-align: center; padding: 2rem 
   nav ul.show { display: flex; max-height: 300px; padding: 1rem; }
   .about-section { flex-direction: column; gap: 2rem; }
   .photo-container .profile-img { max-width: 200px; }
-  /* ### UPDATED FOR PROJECT CARDS ### */
-  .projects-grid {
+  
+  /* ### UPDATED FOR PROJECT & TESTIMONIAL CARDS ### */
+  .projects-grid, .testimonials-container {
     grid-template-columns: 1fr;
   }
+  
   .education-header { flex-direction: column; align-items: flex-start; }
   .education-date { margin-left: 0; margin-top: 0.5rem; }
   .contact-options { flex-direction: column; align-items: center; }
