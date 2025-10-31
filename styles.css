@@ -1,30 +1,34 @@
 :root {
-  --primary: #4a90e2;
-  --accent: #ff6f61;
-  --bg: #ffffff;
+  /* Light theme palette (updated) */
+  --primary: #6A11CB; /* Purple */
+  --accent: #2575FC; /* Blue */
+  --bg: #F4F7FC; /* Light Grey-Blue */
   --text: #1a1a1a;
   --bar-bg: #e0e0e0;
   --bar-fill: var(--primary);
-  --card-bg: #f8f9fa;
+  --card-bg: #FFFFFF;
   --section-spacing: 4rem;
 }
 
 [data-theme="dark"] {
-  --primary: #1E90FF;
-  --accent: #00BFFF;
-  --bg: #0A0A0F;
-  --text: #E0E8FF;
-  --bar-bg: #111827;
-  --bar-fill: #1E90FF;
-  --card-bg: #0F172A;
+  /* NEW "Cool" Dark Palette (like the image) */
+  --primary: #8A2BE2; /* BlueViolet */
+  --accent: #00BFFF; /* DeepSkyBlue */
+  --bg: #0B0A10; /* Very Dark Purple/Black */
+  --text: #D8D8E0; /* Light Lavender Grey */
+  --bar-bg: #1A1722;
+  --bar-fill: var(--primary);
+  --card-bg: #16131D; /* Dark Card Background */
 }
 
+/* Dark theme background gradients */
 [data-theme="dark"] .hero-slide,
 [data-theme="dark"] .contact-slide {
-  background: linear-gradient(
-    135deg,
-    rgba(30, 144, 255, 0.15) 0%,
-    rgba(0, 0, 0, 0.85) 100%
+  /* Subtle glow from the center */
+  background: radial-gradient(
+    circle at 50% 30%,
+    rgba(138, 43, 226, 0.1), /* Faint purple glow */
+    var(--bg) 60%
   );
 }
 
@@ -52,25 +56,40 @@ body {
   padding: 0 1.5rem;
 }
 
-/* Navigation */
+/* Navigation - Glassmorphism Style */
 nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: var(--primary);
+  /* Semi-transparent background */
+  background: rgba(11, 10, 16, 0.8); 
+  backdrop-filter: blur(10px); /* Frosted glass effect */
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(138, 43, 226, 0.2); /* Subtle bottom border */
+}
+
+[data-theme="light"] nav {
+  background: var(--primary);
+  backdrop-filter: none;
+  border-bottom: none;
 }
 
 nav h1 {
   font-size: 1.5rem;
   font-weight: 700;
+  color: var(--primary); /* Use primary color for name */
 }
+
+[data-theme="light"] nav h1,
+[data-theme="light"] nav a {
+  color: white;
+}
+
 
 nav ul {
   list-style: none;
@@ -79,7 +98,7 @@ nav ul {
 }
 
 nav a {
-  color: white;
+  color: var(--text); /* Use body text color */
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
@@ -93,7 +112,7 @@ nav a:after {
   height: 2px;
   bottom: -5px;
   left: 0;
-  background-color: white;
+  background-color: var(--primary); /* Use primary color for underline */
   transition: width 0.3s;
 }
 
@@ -102,7 +121,7 @@ nav a:hover:after {
 }
 
 nav a:hover {
-  color: var(--accent);
+  color: var(--primary);
 }
 
 #theme-toggle {
@@ -110,12 +129,17 @@ nav a:hover {
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
+  color: var(--text);
+  transition: transform 0.3s, color 0.3s;
+}
+
+[data-theme="light"] #theme-toggle {
   color: white;
-  transition: transform 0.3s;
 }
 
 #theme-toggle:hover {
   transform: rotate(15deg);
+  color: var(--accent);
 }
 
 /* Slides container */
@@ -124,7 +148,7 @@ nav a:hover {
   height: 100vh;
   overflow: hidden;
   position: relative;
-  padding-top: 60px;
+  padding-top: 60px; /* Match nav height */
 }
 
 .slide {
@@ -152,30 +176,50 @@ nav a:hover {
 /* Hero Section */
 .hero-slide {
   text-align: center;
-  background: linear-gradient(135deg, rgba(74, 144, 226, 0.1) 0%, rgba(255, 111, 97, 0.1) 100%);
 }
 
+/* Profile Image - Glow Effect (like image) */
 .profile-img {
   width: 180px;
   height: 180px;
   border-radius: 50%;
   margin-bottom: 1.5rem;
-  border: 5px solid var(--primary);
+  border: 4px solid var(--primary);
   object-fit: cover;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  background: linear-gradient(45deg, var(--primary), var(--accent));
+  /* Glow effect */
+  box-shadow: 0 0 20px rgba(138, 43, 226, 0.7), 
+              0 0 30px rgba(138, 43, 226, 0.5);
+  transition: all 0.3s ease;
+  background: var(--card-bg); /* Fallback for image */
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--primary);
   font-size: 3rem;
   font-weight: bold;
 }
 
+.profile-img:hover {
+  transform: scale(1.05);
+  border-color: var(--accent);
+  /* Brighter glow on hover */
+  box-shadow: 0 0 30px rgba(0, 191, 255, 0.8), 
+              0 0 45px rgba(0, 191, 255, 0.6);
+}
+
+[data-theme="light"] .profile-img {
+   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .profile-img:hover {
+   box-shadow: 0 10px 25px rgba(106, 17, 203, 0.3);
+}
+
+
 .hero-slide h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: var(--primary);
+  color: var(--text); /* Main name color */
 }
 
 .hero-slide p {
@@ -183,26 +227,16 @@ nav a:hover {
   max-width: 700px;
   margin: 0 auto 2rem;
   color: var(--text);
-}
-
-.usp {
-  background: var(--primary);
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 30px;
-  display: inline-block;
-  margin: 1rem 0;
-  font-weight: 600;
-  font-size: 1.1rem;
-  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+  opacity: 0.8; /* Slightly faded text */
 }
 
 /* Sections */
 .section-title {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem; /* Increased spacing */
   position: relative;
   color: var(--primary);
+  font-size: 2rem;
 }
 
 .section-title:after {
@@ -233,7 +267,7 @@ nav a:hover {
 
 .photo-container .profile-img {
   max-width: 250px;
-  border-radius: 8px;
+  border-radius: 8px; /* Match image style */
   height: auto;
   aspect-ratio: 1;
 }
@@ -246,17 +280,14 @@ nav a:hover {
   font-size: 1.1rem;
   line-height: 1.7;
   margin-bottom: 1.5rem;
+  opacity: 0.9;
 }
 
 .details {
-  background: rgba(74, 144, 226, 0.05);
+  background: var(--card-bg);
   padding: 1.5rem;
   border-radius: 8px;
   border-left: 4px solid var(--primary);
-}
-
-[data-theme="dark"] .details {
-  background: rgba(30, 136, 229, 0.1);
 }
 
 .details p {
@@ -300,7 +331,8 @@ nav a:hover {
 .fill {
   height: 100%;
   width: 0;
-  background: var(--bar-fill);
+  /* Gradient fill for bars */
+  background: linear-gradient(90deg, var(--primary), var(--accent));
   border-radius: 5px;
   transition: width 1.5s ease;
 }
@@ -318,18 +350,30 @@ nav a:hover {
   background: var(--card-bg);
   border-radius: 10px;
   overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
+  /* Add border for glow effect */
+  border: 1px solid transparent; 
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+[data-theme="dark"] .project-card {
+  border-color: rgba(138, 43, 226, 0.2);
+  box-shadow: none;
 }
 
-[data-theme="dark"] .project-card:hover {
-  box-shadow: 0 10px 20px rgba(100, 181, 246, 0.2);
+
+.project-card:hover {
+  transform: translateY(-5px);
+  /* Glow effect on hover */
+  border-color: var(--primary);
+  box-shadow: 0 10px 20px rgba(138, 43, 226, 0.2);
 }
+
+[data-theme="light"] .project-card:hover {
+   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+   border-color: var(--primary);
+}
+
 
 .project-img {
   height: 160px;
@@ -363,16 +407,18 @@ nav a:hover {
 }
 
 .project-tag {
-  background: rgba(74, 144, 226, 0.1);
+  background: rgba(138, 43, 226, 0.1); /* Use primary color */
   color: var(--primary);
   padding: 0.3rem 0.7rem;
   border-radius: 20px;
   font-size: 0.8rem;
+  font-weight: 500;
 }
 
-[data-theme="dark"] .project-tag {
-  background: rgba(30, 136, 229, 0.2);
+[data-theme="light"] .project-tag {
+  background: rgba(106, 17, 203, 0.1);
 }
+
 
 /* Testimonials */
 .testimonials-container {
@@ -390,12 +436,18 @@ nav a:hover {
   border-radius: 10px;
   min-width: 280px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(138, 43, 226, 0.2);
+}
+
+[data-theme="light"] .testimonial {
+  border: 1px solid #eee;
 }
 
 .testimonial-text {
   font-style: italic;
   margin-bottom: 1rem;
   position: relative;
+  opacity: 0.9;
 }
 
 .testimonial-author {
@@ -423,7 +475,6 @@ nav a:hover {
 
 /* Contact Section */
 .contact-slide {
-  background: linear-gradient(135deg, rgba(74, 144, 226, 0.1) 0%, rgba(255, 111, 97, 0.1) 100%);
   text-align: center;
 }
 
@@ -437,16 +488,26 @@ nav a:hover {
 }
 
 .contact-option {
-  background: var(--bg);
+  background: var(--card-bg);
   padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
   min-width: 180px;
+  border: 1px solid rgba(138, 43, 226, 0.2);
+}
+
+[data-theme="light"] .contact-option {
+  border: 1px solid #eee;
 }
 
 .contact-option:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(138, 43, 226, 0.2);
+}
+
+[data-theme="light"] .contact-option:hover {
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .contact-option i {
@@ -457,16 +518,27 @@ nav a:hover {
 
 /* Footer */
 footer {
-  background: var(--primary);
-  color: white;
+  background: var(--bg); /* Match dark bg */
+  color: var(--text);
   text-align: center;
   padding: 2rem 1rem;
+  border-top: 1px solid rgba(138, 43, 226, 0.2);
 }
 
-[data-theme="dark"] footer {
-  background: var(--bg);
-  border-top: 1px solid var(--primary);
+[data-theme="light"] footer {
+  background: var(--primary);
+  color: white;
+  border-top: none;
 }
+
+footer h2 {
+  color: var(--primary);
+}
+
+[data-theme="light"] footer h2 {
+  color: white;
+}
+
 
 .social-links {
   display: flex;
@@ -476,20 +548,21 @@ footer {
 }
 
 .social-links a {
-  color: white;
+  color: var(--primary);
   font-size: 1.5rem;
-  transition: transform 0.3s;
+  transition: transform 0.3s, color 0.3s;
 }
 
-[data-theme="dark"] .social-links a {
-  color: var(--accent);
+[data-theme="light"] .social-links a {
+  color: white;
 }
 
 .social-links a:hover {
   transform: translateY(-3px);
+  color: var(--accent);
 }
 
-/* Navigation controls */
+/* Navigation controls - Outline Style */
 .slide-nav {
   position: fixed;
   bottom: 20px;
@@ -500,9 +573,9 @@ footer {
 }
 
 .nav-btn {
-  background: var(--primary);
-  color: white;
-  border: none;
+  background: transparent; /* Outline style */
+  color: var(--primary);
+  border: 2px solid var(--primary);
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -511,7 +584,13 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
 }
 
 /* Print styles for PDF */
@@ -541,6 +620,20 @@ footer {
   body, html {
     height: auto;
     overflow: visible;
+    background: #fff !important; /* Force white bg for print */
+    color: #000 !important; /* Force black text for print */
+  }
+
+  :root, [data-theme="dark"] {
+    --primary: #000;
+    --accent: #333;
+    --bg: #fff;
+    --text: #000;
+    --card-bg: #f9f9f9;
+  }
+
+  .fill {
+    background: #ccc !important;
   }
 }
 
@@ -554,17 +647,24 @@ footer {
     top: 100%;
     left: 0;
     right: 0;
-    background: var(--primary);
-    padding: 0 1rem; /* Initial padding for closed state */
-    max-height: 0; /* Initial height for closed state */
+    /* Use dark theme card bg for mobile menu */
+    background: var(--card-bg); 
+    border-bottom: 1px solid rgba(138, 43, 226, 0.2);
+    padding: 0 1rem;
+    max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
   }
   
+  [data-theme="light"] nav ul {
+     background: var(--primary);
+     border-bottom: none;
+  }
+
   nav ul.show {
     display: flex;
-    max-height: 300px; /* Adjust as needed to fit all menu items */
-    padding: 1rem; /* Expanded padding */
+    max-height: 300px;
+    padding: 1rem;
   }
   
   .about-section {
@@ -587,6 +687,7 @@ footer {
   
   .slide {
     padding: 1rem;
+    padding-top: 4rem; /* Add padding for content */
   }
 
   .hero-slide h2 {
@@ -605,7 +706,10 @@ footer {
 }
 
 .fade-in {
-  animation: fadeIn 1s ease forwards;
+  /* Replaced with JS animation for scroll */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 /* Mobile menu button */
@@ -613,9 +717,13 @@ footer {
   display: none;
   background: none;
   border: none;
-  color: white;
+  color: var(--text); /* Match nav text */
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+[data-theme="light"] .menu-toggle {
+  color: white;
 }
 
 @media (max-width: 768px) {
@@ -634,9 +742,6 @@ footer {
   text-decoration: none;
   color: inherit;
 }
-
-
-
 
 /* Smooth transition for mobile menu */
 nav ul {
@@ -657,22 +762,20 @@ nav ul {
 }
 
 
-
-
-/* Typing effect cursor */
+/* Typing effect text and cursor */
 .typed-text {
   font-weight: bold;
-  color: var(--accent);
+  color: var(--accent); /* Use accent color */
 }
 
 .typed-text::after {
   content: '|';
   display: inline-block;
   animation: blink-caret .75s infinite alternate;
+  color: var(--accent); /* Make cursor match */
 }
 
 @keyframes blink-caret {
   from { opacity: 1; }
   to { opacity: 0; }
 }
-
