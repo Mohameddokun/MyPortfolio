@@ -129,6 +129,10 @@ const savedTheme = localStorage.getItem("theme");
 if (savedTheme) {
   document.documentElement.setAttribute("data-theme", savedTheme);
   toggle.textContent = savedTheme === "dark" ? "☀️" : "🌙";
+} else {
+    // If no saved theme, default to dark
+    document.documentElement.setAttribute("data-theme", "dark");
+    toggle.textContent = "☀️";
 }
 
 // Animate skill bars
@@ -171,4 +175,3 @@ window.addEventListener("scroll", () => {
   animateBars();
   animateOnScroll();
 });
-
