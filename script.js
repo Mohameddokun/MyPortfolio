@@ -9,6 +9,7 @@ let currentSlide = 0;
 
 // Typing effect for hero section
 const typedTextSpan = document.querySelector(".typed-text");
+// --- UPDATED PHRASES AS REQUESTED ---
 const phrases = ["a Computer Engineer", "a Data Analyst", "a .NET Backend Engineer"];
 let phraseIndex = 0;
 let charIndex = 0;
@@ -129,10 +130,6 @@ const savedTheme = localStorage.getItem("theme");
 if (savedTheme) {
   document.documentElement.setAttribute("data-theme", savedTheme);
   toggle.textContent = savedTheme === "dark" ? "☀️" : "🌙";
-} else {
-    // If no saved theme, default to dark
-    document.documentElement.setAttribute("data-theme", "dark");
-    toggle.textContent = "☀️";
 }
 
 // Animate skill bars
@@ -175,3 +172,13 @@ window.addEventListener("scroll", () => {
   animateBars();
   animateOnScroll();
 });
+
+// Contact form submission
+const contactForm = document.getElementById("message-form");
+if (contactForm) {
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    alert("Thank you for your message! I'll get back to you soon.");
+    contactForm.reset();
+  });
+}
