@@ -3,19 +3,22 @@
 /* ============================================= */
 
 :root {
-  /* Color Palette: Dark mode with electric accents */
-  --primary: #FFB800;  /* Amber - for main highlights, glows */
-  --accent: #FFD700;   /* Gold - for secondary highlights */
-  --bg: #0d1117;       /* Very dark navy blue, almost black */
-  --card-bg: #161b22;  /* Slightly lighter dark blue for cards */
-  --text: #c9d1d9;     /* Light grey for body text */
-  --text-dark: #8b949e; /* Dimmer grey for subtitles */
-  --border-color: rgba(255, 184, 0, 0.2); /* Translucent Amber */
+  /* Dark Mode Palette Based on Black & Gold Elegance */
+  --primary: #f2a900; /* Gold highlight */
+  --accent: #f2f2f2; /* Soft white for accents */
 
-  /* Effects */
-  --glow-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary);
-  --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  --bg: #000000; /* Deep black background */
+  --card-bg: #0b0b0d; /* Very dark gray for cards */
+
+  --text: #d9d9d9; /* Light gray text */
+  --text-dark: #9a9a9a; /* Dimmer gray */
+
+  --border-color: rgba(242, 169, 0, 0.2); /* Gold border glow */
+
+  --glow-shadow: 0 0 6px var(--primary), 0 0 14px var(--primary);
+  --card-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
 }
+
 
 * {
   margin: 0;
