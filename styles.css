@@ -1,22 +1,29 @@
 /* ============================================= */
-/* NEW ELECTRONICS-THEMED STYLES (Amber/Gold)    */
+/* NEW ELECTRONICS-THEMED STYLES (Black, Navy, Gold, White) */
+/* Based on 'Black & Gold Elegance' palette */
 /* ============================================= */
 
 :root {
   /* Dark Mode Palette Based on Black & Gold Elegance */
-  --primary: #f2a900; /* Gold highlight */
-  --accent: #f2f2f2; /* Soft white for accents */
+  --color-black: #000000;
+  --color-navy: #152238; /* A rich, very dark navy/indigo based on the palette */
+  --color-gold: #ffb800; /* The striking orange-gold color */
+  --color-light-gray: #e0e0e0; /* The soft white/light gray */
+  --color-white: #ffffff; /* Pure white */
 
-  --bg: #000000; /* Deep black background */
-  --card-bg: #0b0b0d; /* Very dark gray for cards */
+  --primary: var(--color-gold); /* Gold highlight */
+  --accent: var(--color-light-gray); /* Soft white for major accents */
 
-  --text: #d9d9d9; /* Light gray text */
-  --text-dark: #9a9a9a; /* Dimmer gray */
+  --bg: var(--color-black); /* Deep black background */
+  --card-bg: var(--color-navy); /* Dark navy for cards/elements */
 
-  --border-color: rgba(242, 169, 0, 0.2); /* Gold border glow */
+  --text: var(--color-light-gray); /* Light gray text */
+  --text-dark: #a0a0a0; /* Dimmer gray for subtle text */
+
+  --border-color: rgba(255, 184, 0, 0.3); /* Gold border glow (slightly opaque) */
 
   --glow-shadow: 0 0 6px var(--primary), 0 0 14px var(--primary);
-  --card-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
 }
 
 
@@ -56,11 +63,11 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(13, 17, 23, 0.7); /* Semi-transparent background */
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
   backdrop-filter: blur(10px); /* Glassy effect */
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-color);
-  color: white;
+  color: var(--color-white);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -83,7 +90,7 @@ nav a:hover:after { width: 100%; }
 nav a:hover { color: var(--primary); text-shadow: var(--glow-shadow); }
 
 /* Theme toggle removed for a consistent dark theme, but you can add it back if you wish */
-#theme-toggle { display: none; } 
+#theme-toggle { display: none; } 
 
 /* Slides container */
 .slides-container { width: 100%; height: 100vh; overflow: hidden; position: relative; padding-top: 60px; }
@@ -96,8 +103,8 @@ nav a:hover { color: var(--primary); text-shadow: var(--glow-shadow); }
   position: relative;
   overflow: hidden;
   /* Add a grid background */
-  background-image: 
-    linear-gradient(rgba(13, 17, 23, 0.95), rgba(13, 17, 23, 0.95)),
+  background-image: 
+    linear-gradient(var(--color-black), var(--color-black)),
     radial-gradient(ellipse at center, rgba(255, 184, 0, 0.1) 0%, transparent 70%),
     linear-gradient(to right, var(--border-color) 1px, transparent 1px),
     linear-gradient(to bottom, var(--border-color) 1px, transparent 1px);
@@ -120,7 +127,7 @@ nav a:hover { color: var(--primary); text-shadow: var(--glow-shadow); }
 .hero-slide h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: #fff;
+  color: var(--color-white);
 }
 .hero-slide h2 .typed-text { color: var(--accent); }
 
@@ -151,21 +158,28 @@ nav a:hover { color: var(--primary); text-shadow: var(--glow-shadow); }
   z-index: -1;
   overflow: hidden;
 }
+/* Replaced the SVG background with a dynamic linear-gradient for better control */
 .decorative-elements::before {
   content: '';
   position: absolute;
-  bottom: 20px;
+  bottom: 0;
   left: 0;
-  width: 200%;
-  height: 100px;
-  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 50 C 200 0, 300 100, 500 50 S 700 0, 900 50 S 1100 100, 1300 50 S 1500 0, 1700 50 S 1900 100, 2100 50' stroke='%23FFB800' fill='none' stroke-width='2'/%3e%3c/svg%3e");
-  background-repeat: repeat-x;
-  animation: wave 10s linear infinite;
-  opacity: 0.4;
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(to right,
+    var(--primary) 0%, var(--primary) 10%,
+    transparent 10%, transparent 20%,
+    var(--primary) 20%, var(--primary) 30%,
+    transparent 30%, transparent 40%,
+    var(--primary) 40%, var(--primary) 50%,
+    transparent 50%, transparent 60%,
+    var(--primary) 60%, var(--primary) 70%,
+    transparent 70%, transparent 80%,
+    var(--primary) 80%, var(--primary) 90%,
+    transparent 90%, transparent 100%
+  );
+  opacity: 0.2;
 }
-
-@keyframes wave { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-.circle { display: none; } /* Hide old circles */
 
 /* Sections */
 .section-title {
@@ -229,7 +243,7 @@ nav a:hover { color: var(--primary); text-shadow: var(--glow-shadow); }
 
 .project-image {
   height: 200px;
-  background: linear-gradient(45deg, var(--primary), var(--accent));
+  background: linear-gradient(45deg, var(--primary), var(--card-bg));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -361,7 +375,7 @@ nav a:hover { color: var(--primary); text-shadow: var(--glow-shadow); }
 .education-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
 .education-title { color: var(--primary); margin-bottom: 0.5rem; }
 .education-institution { font-weight: 600; color: var(--text-dark); }
-.education-date { color: var(--accent); font-weight: 600; white-space: nowrap; margin-left: 1rem; background: rgba(255, 215, 0, 0.1); padding: 0.3rem 0.7rem; border-radius: 5px; font-size: 0.9rem; }
+.education-date { color: var(--accent); font-weight: 600; white-space: nowrap; margin-left: 1rem; background: rgba(255, 184, 0, 0.15); /* Use Gold on Navy background */ padding: 0.3rem 0.7rem; border-radius: 5px; font-size: 0.9rem; }
 .education-details { margin-top: 1rem; }
 .education-details ul { list-style-type: none; padding-left: 0; }
 .education-details li { margin-bottom: 0.5rem; display: flex; align-items: flex-start; }
@@ -376,13 +390,13 @@ nav a:hover { color: var(--primary); text-shadow: var(--glow-shadow); }
 .contact-form { margin-top: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; text-align: left; }
 .contact-form h3 { color: var(--primary); margin-bottom: 1.5rem; text-align: center; }
 .form-group { margin-bottom: 1.5rem; }
-.form-group input, .form-group textarea { width: 100%; padding: 0.8rem 1rem; border: 1px solid var(--border-color); border-radius: 5px; font-family: inherit; font-size: 1rem; transition: border-color 0.3s, box-shadow 0.3s; background: var(--bg); color: var(--text); }
+.form-group input, .form-group textarea { width: 100%; padding: 0.8rem 1rem; border: 1px solid var(--border-color); border-radius: 5px; font-family: inherit; font-size: 1rem; transition: border-color 0.3s, box-shadow 0.3s; background: var(--color-black); color: var(--text); }
 .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); box-shadow: var(--glow-shadow); }
 .btn-primary { background: transparent; color: var(--primary); border: 2px solid var(--primary); padding: 0.8rem 2rem; border-radius: 5px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s; display: block; margin: 0 auto; }
 .btn-primary:hover { transform: translateY(-3px); background: var(--primary); color: var(--bg); box-shadow: var(--glow-shadow); }
 
 /* Footer */
-footer { background: var(--bg); color: white; text-align: center; padding: 2rem 1rem; border-top: 1px solid var(--border-color); }
+footer { background: var(--color-black); color: var(--color-white); text-align: center; padding: 2rem 1rem; border-top: 1px solid var(--border-color); }
 .social-links { display: flex; justify-content: center; gap: 1.5rem; margin: 1.5rem 0; }
 .social-links a { color: var(--primary); font-size: 1.5rem; transition: transform 0.3s, text-shadow 0.3s; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid var(--border-color); }
 .social-links a:hover { transform: translateY(-3px); background: var(--primary); color: var(--bg); border-color: var(--primary); box-shadow: var(--glow-shadow); }
